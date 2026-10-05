@@ -1,0 +1,24 @@
+# Secrets
+.env
+
+# Vector store data
+chroma_db*/
+
+# Bank documents / data (public docs only should ever exist here, but never commit contents)
+data/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# Gradio local cache
+.gradio/
+
+# Evaluation outputs
+results/
+
+# User-app interaction logs (contain user input)
+logs/
