@@ -73,6 +73,33 @@ OPENAI_API_KEY="sk-proj-..."
 python gradio_app.py
 ```
 
+### Προαιρετικό: Login με ρόλους (ένα κοινό link)
+
+Το `gradio_app.py` λειτουργεί ως **ενιαία εφαρμογή**. Με ενεργό auth:
+
+- χρήστες στο `APP_ADMINS` βλέπουν admin UI (chat + upload + stats + settings)
+- όλοι οι υπόλοιποι χρήστες του `APP_USERS` βλέπουν user UI (chat-only + consent + logging)
+
+Ρύθμισε πριν το launch:
+
+```bash
+set APP_USERS=admin1:secret;user1:pass
+set APP_ADMINS=admin1
+python gradio_app.py
+```
+
+Για κοινό public δοκιμαστικό link (ίδιο URL για admin και users):
+
+```bash
+set APP_USERS=admin1:secret;user1:pass
+set APP_ADMINS=admin1
+python gradio_app.py --share
+```
+
+Το ίδιο share link δίνεται σε όλους. Τα credentials αποφασίζουν αν θα ανοίξει admin ή user interface.
+
+Αν δεν ορίσεις `APP_USERS`, η εφαρμογή τρέχει χωρίς login και αντιμετωπίζει το session ως admin (συμβατότητα με την παλιά συμπεριφορά).
+
 > ✅ Επιτυχία — θα δεις:
 > ```
 > Running on local URL: http://127.0.0.1:7860
